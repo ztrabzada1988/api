@@ -118,6 +118,25 @@
           .then(res => res.json())
           .then(data => console.log(data));
       }
+
+      // testing new api
+      function getPosts() {
+        fetch(
+          "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=election"
+        )
+          .then(res => res.json())
+          .then(data => {
+            let output = '<h2 class="mb-4">Posts</h2>';
+            data.map(function(post) {
+              // you can use forEach as well instead of map
+              output += `
+                <div class="card card-body mb-3">
+                </div>     
+              `;
+            });
+            document.getElementById("output").innerHTML = output;
+          });
+      }
     </script>
   </body>
 </html>
